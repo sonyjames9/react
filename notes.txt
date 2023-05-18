@@ -40,3 +40,14 @@ import {Fragment} from "react"
   ES7+ - 
 
   -   rafce - React Arrow Function Component Export
+
+#Using children prop, we can pass children to component
+
+interface Props {
+  children: string;
+}
+  - If you want to pass complex structure like html then pass
+  ReactNode to the children in interface
+interface Props {
+  children: ReactNode;
+}
