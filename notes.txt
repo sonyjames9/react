@@ -1,0 +1,42 @@
+React Notes ---------
+
+package manager for react
+vite/cra
+
+# create react app from scratch
+npm create vite@4.1.0 
+
+# Install dependencies in package.json
+npm install
+
+#run code on live server
+npm run dev
+
+# Convert html to JSX
+bablejs.io/repl
+
+#CSS bootstrap
+getbootstrap.com
+
+Ctrl+Alt+Shift+J - Select multi cursor
+
+In React
+ - a component cannot return more than one element
+
+1. Use fragments 
+import {Fragment} from "react"
+2. keep enclosed <> and </> - this is considered as fragments
+3. Enclose with div
+
+
+# Change state dynamically
+  // Hook - this is a funciton which allows to tap into built-in features of react
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  // const [name, setName] = useState('')
+  // arr[0]; //variable (selectedIndex)
+  // arr[1]; //updater function
+
+#Extension
+  ES7+ - 
+
+  -   rafce - React Arrow Function Component Export
