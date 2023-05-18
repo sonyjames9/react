@@ -53,4 +53,6 @@ interface Props {
 }
 
 # React developer tools
-consol
+console with react components and profiler
+- the tools provide detailed view of source files
+- A component belongs to which dom and class
