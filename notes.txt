@@ -56,3 +56,28 @@ interface Props {
 console with react components and profiler
 - the tools provide detailed view of source files
 - A component belongs to which dom and class
+
+Static button ------
+const Button = () => {
+  return (
+    <button type="button" className="btn btn-primary">
+      Primary
+    </button>
+  );
+}
+
+
+Dynamic button ------
+interface Props {
+  children: string;
+}
+
+const Button = ({ children }: Props) => {
+  return (
+    <button type="button" className="btn btn-primary">
+      {children}
+    </button>
+  );
+};
+
+export default Button;
