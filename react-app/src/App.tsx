@@ -5,7 +5,6 @@ import Button from "./components/Button/Button";
 function App() {
   return (
     <div>
-      {/* <BsFillCalendarFill color="blue" size="20" /> */}
       <Button onClick={() => {}}>My Button</Button>
     </div>
   );
