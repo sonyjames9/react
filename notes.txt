@@ -81,3 +81,19 @@ const Button = ({ children }: Props) => {
 };
 
 export default Button;
+
+
+ - Do not use inline styling for generic work, use them as last resort
+
+-  Bootstrap
+-  Material UI
+-  Tailwind CSS
+-  Daily UI
+-  Chakra UI  *******
+
+
+------
+- 
+ICONS --------
+
+https://react-icons.github.io/react-icons/search

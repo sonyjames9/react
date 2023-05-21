@@ -1,16 +1,10 @@
-import { useState } from "react";
 import ListGroup from "./components/ListGroup/ListGroup";
+import { BsFillCalendarFill } from "react-icons/bs";
 
 function App() {
-  const items = ["NY", "LA", "SF"];
-
   return (
     <div>
-      <ListGroup
-        heading="Miami"
-        items={items}
-        onSelectItem={() => console.log(items)}
-      />
+      <BsFillCalendarFill color="blue" size="20" />
     </div>
   );
 }
