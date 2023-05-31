@@ -1,5 +1,4 @@
 import Message from "./Message";
-import Like from "./components/Like";
 
 function App() {
   return (
