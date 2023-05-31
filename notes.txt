@@ -103,3 +103,12 @@ https://react-icons.github.io/react-icons/search
 - State is stored outside the components
 - Use hooks at the top level of your component
 
+When using stateHook prefer a flat structure and avoid deeply nested structure
+- Avoid redundat state variables
+- Group related variables inside an object
+- Avoid deeply nested structures
+
+Pure Function - Given the same input, always return the same result
+
+Props -> Component -> JSX
+
