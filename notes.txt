@@ -107,3 +107,35 @@ https://react-icons.github.io/react-icons/search
 - When StrictMode is enabled, react renders each component twice
 - It behaves this way only development env
 - In Production, the StrictMode checks are not included and our component will render only once
+
+- When dealing with Props or state (object/arrays), you should treat them as immutable or readonly
+- Instead of updating state object, give react a brand new state object to change values of the prior state object
+
+#Spread operator
+- Instead of copying all properties, using spread operator you can use the objects of one state in another
+
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  })
+
+  const handleClick = () => {
+    const newDrink = {
+      title: drink.title,
+      price: 6
+    }
+    setDrink(newDrink)
+  };
+-----
+  const handleClick = () => {
+    const newDrink = {
+      ...drink,
+      price: 6
+    }
+    setDrink(newDrink)
+  };
+
+Using Spread operator
+  const handleClick = () => {
+    setDrink({...drink, price:6})
+  };
