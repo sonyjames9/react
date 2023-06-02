@@ -139,3 +139,5 @@ Using Spread operator
   const handleClick = () => {
     setDrink({...drink, price:6})
   };
+
+- Prefer flat structure rather than deeply structured json, because when you update changes to json, its difficult changing the deep json objects
