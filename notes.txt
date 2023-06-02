@@ -141,3 +141,25 @@ Using Spread operator
   };
 
 - Prefer flat structure rather than deeply structured json, because when you update changes to json, its difficult changing the deep json objects
+
+
+Add, remove and update properties
+
+    // Add property
+    setTags([...tags, 'exciting']);
+
+    // Remove
+    setTags(tags.filter(tag => tag !== 'happy'));
+
+    // Update
+    setTags(tags.map(tag => tag === 'happy'? 'happiness': tag))
+
+
+# Immer
+- draft is a proxy object that requires the changes we are going to apply to the array
+
+    setBugs(produce(draft => {
+      const bug = draft.find(bug => bug.id === 1);
+      if (bug) bug.fixed = true
+    }))
+
