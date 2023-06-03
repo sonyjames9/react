@@ -40,6 +40,7 @@ function App() {
   });
 
   const handleClick = () => {
+    // Update quanity of a Prodct
     setCart({
       ...cart,
       items: cart.items.map((item) =>
