@@ -211,3 +211,5 @@ Add, remove and update properties
       ),
     });
   };
+
+# Building an ExpandableText Component

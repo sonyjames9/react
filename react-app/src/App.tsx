@@ -1,55 +1,23 @@
-import { useState } from "react";
+import ExpandableText from "./components/ExpandableText";
 
 function App() {
-  //     const [game, setGame] = useState({
-  //       id: 1,
-  //       player: {
-  //         name: "John",
-  //       },
-  //     });
-  //
-  //     const handleClick = () => {
-  //       // setGame({...game, player : {name: 'Bob'}})
-  //       setGame({
-  //         ...game,
-  //         player: {
-  //           ...game.player,
-  //          Change player name
-  //           name: "Bob",
-  //         },
-  //       });
-  //     };
-
-  //   const [pizza, setPizza] = useState({
-  //     name: 'Spicy Pepperoni',
-  //     toppings: ['Mushroom']
-  //   });
-  //
-  //   const handleClick = () => {
-  //
-  //     // Add toppings to pizza
-  //     setPizza({ ...pizza, toppings: [...pizza.toppings, 'Cheese']})
-  //   };
-
-  const [cart, setCart] = useState({
-    discount: 0.1,
-    items: [
-      { id: 1, title: "Product1", quantity: 1 },
-      { id: 2, title: "Product2", quantity: 1 },
-    ],
-  });
-
-  const handleClick = () => {
-    // Update quanity of a Prodct
-    setCart({
-      ...cart,
-      items: cart.items.map((item) =>
-        item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
-      ),
-    });
-  };
-
-  return <div></div>;
+  return (
+    <div>
+      <ExpandableText maxChars={10}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minus
+        quibusdam quod molestias. Et exercitationem dolore ipsam voluptate neque
+        asperiores, placeat ducimus consequuntur itaque id nulla eligendi omnis,
+        autem eveniet veritatis? Sapiente earum officia voluptas qui debitis
+        aspernatur hic, natus saepe ut similique quam. Facilis sapiente, in sed
+        rem quod, assumenda minus exercitationem nostrum cum quidem impedit non,
+        explicabo adipisci illum molestiae dolor error? Veritatis aliquid totam
+        nulla accusamus ipsam cumque, eius reiciendis in soluta! Necessitatibus
+        rem praesentium voluptate quisquam in fugit dolorem beatae dignissimos
+        aut velit! Quae quos distinctio cumque. Deserunt, earum. Totam a
+        repudiandae alias iste saepe dolores.
+      </ExpandableText>
+    </div>
+  );
 }
 
 export default App;
