@@ -223,3 +223,12 @@ div.mb-3>label.form-label+input[type=number].form-control = <div className="mb-3
 
 button.btn.btn-primary = <button className="btn btn-primary" type="submit">Submit</button>
 
+# Using useRef
+  const nameRef = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    if (nameRef.current !== null)
+      console.log(nameRef.current.value);
+  };
+-- Always define ref objects with null
