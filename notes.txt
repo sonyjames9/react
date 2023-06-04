@@ -213,3 +213,13 @@ Add, remove and update properties
   };
 
 # Building an ExpandableText Component
+
+# Short snippets
+div.mb-3  = <div className="mb-3"></div>
+
+div.mb-3>label.form-label+input.form-control = <div className="mb-3"><label htmlFor="" className="form-label"></label><input type="text" className="form-control" /></div>
+
+div.mb-3>label.form-label+input[type=number].form-control = <div className="mb-3"><label htmlFor="" className="form-label"></label><input type="number" className="form-control" /></div>
+
+button.btn.btn-primary = <button className="btn btn-primary" type="submit">Submit</button>
+
