@@ -262,11 +262,23 @@ Use ref Hook when you see performance issues with state hook.
 
 # Reduce overall code by using react-hook-form
 import { FieldValues, useForm } from "react-hook-form";
-
+const { register, handleSubmit } = useForm();
 
         <input
-          {...register("name")}
+          {...register("name")} //we register the name field
           id="name"
           type="text"
           className="form-control"
         />
+
+#Nested destructuring in JS
+formState: { errors }
+
+#Optional chaining in JS <?.>
+{errors.name?.type === "required" && ( <p className="text-danger">The name field is required</p> )}
+
+# You can pass the values of FormData so that later the values in interface can be used in auto completion box
+interface FormData {
+  name: string;
+  age: number;
+}
