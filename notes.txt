@@ -240,3 +240,22 @@ button.btn.btn-primary = <button className="btn btn-primary" type="submit">Submi
       person.age = parseInt(ageRef.current.value);
     console.log(person);
   };
+
+Use ref Hook when you see performance issues with state hook. 
+
+#Perform the above useRef using useState object
+
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          onChange={(event) =>
+            setPerson({ ...person, name: event.target.value })
+          }
+          value={person.name}
+          id="name"
+          type="text"
+          className="form-control"
+        />
+      </div>
