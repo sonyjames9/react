@@ -259,3 +259,14 @@ Use ref Hook when you see performance issues with state hook.
           className="form-control"
         />
       </div>
+
+# Reduce overall code by using react-hook-form
+import { FieldValues, useForm } from "react-hook-form";
+
+
+        <input
+          {...register("name")}
+          id="name"
+          type="text"
+          className="form-control"
+        />

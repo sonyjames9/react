@@ -3,7 +3,6 @@ import { FieldValues, useForm } from "react-hook-form";
 
 const Form = () => {
   const { register, handleSubmit } = useForm();
-
   const onSubmit = (data: FieldValues) => console.log(data);
 
   return (
