@@ -1,9 +1,20 @@
+import { useState } from "react";
 import Form from "./components/Form";
+import ExpenseList from "./expense-tracker/ExpenseList";
 
 function App() {
+  const [expenses, setExpenses] = useState([
+    { id: 1, description: "aaa", amount: 10, category: "Utilities" },
+    { id: 2, description: "bbb", amount: 10, category: "Utilities" },
+    { id: 3, description: "aaa", amount: 10, category: "Utilities" },
+    { id: 4, description: "bbb", amount: 10, category: "Utilities" },
+  ]);
   return (
     <div>
-      <Form />
+      <ExpenseList
+        expenses={expenses}
+        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+      />
     </div>
   );
 }
