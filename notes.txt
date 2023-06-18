@@ -315,3 +315,16 @@ const Form = () => {
 
 .mb-3>label.form-label+select.form-select = 
 <div className="mb-3"><label htmlFor="" className="form-label"></label><select name="" id="" className="form-select"></select></div>
+
+#EffectHook()
+
+useEffect(() => {}) 
+To execute a piece of code after a component is redered
+
+useEffect - is used only after each render
+- can be used only in top level of components
+- like ref or state hooks we can call it multiple times for different purposes
+- when we have multiple effects, react will run them in order after each otherwise
+
+useEffect - cannot be used in if or for loops
+
