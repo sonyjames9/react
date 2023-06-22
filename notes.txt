@@ -328,3 +328,20 @@ useEffect - is used only after each render
 
 useEffect - cannot be used in if or for loops
 
+# Use interface to print the user name at runtime using interfaces
+
+interface User {
+  id: number;
+  name: string;
+}
+
+function App() {
+  const [users, setUsers] = useState<User[]>([]); #The Interface array is passed here
+  useEffect(() => {
+    axios
+      .get<User[]>("https://jsonplaceholder.typicode.com/users") #The Interface array is passed here
+      .then((res) => console.log(res.data[0].name));
+  }, []);  # Add empty array as dependency to the useEffect, otherwise the server will go in infinite loop
+
+  return <div></div>;
+}
