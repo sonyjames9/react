@@ -1,0 +1,350 @@
+React Notes ---------
+
+package manager for react
+vite/cra
+
+# create react app from scratch
+npm create vite@4.1.0 
+
+# Install dependencies in package.json
+npm install
+
+#run code on live server
+npm run dev
+
+# Convert html to JSX
+bablejs.io/repl
+
+#CSS bootstrap
+getbootstrap.com
+
+Ctrl+Alt+Shift+J - Select multi cursor
+
+In React
+ - a component cannot return more than one element
+
+1. Use fragments 
+import {Fragment} from "react"
+2. keep enclosed <> and </> - this is considered as fragments
+3. Enclose with div
+
+
+# Change state dynamically
+  // Hook - this is a funciton which allows to tap into built-in features of react
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  // const [name, setName] = useState('')
+  // arr[0]; //variable (selectedIndex)
+  // arr[1]; //updater function
+
+#Extension
+  ES7+ - 
+
+  -   rafce - React Arrow Function Component Export
+
+#Using children prop, we can pass children to component
+
+interface Props {
+  children: string;
+}
+  - If you want to pass complex structure like html then pass
+  ReactNode to the children in interface
+interface Props {
+  children: ReactNode;
+}
+
+# React developer tools
+console with react components and profiler
+- the tools provide detailed view of source files
+- A component belongs to which dom and class
+
+Static button ------
+const Button = () => {
+  return (
+    <button type="button" className="btn btn-primary">
+      Primary
+    </button>
+  );
+}
+
+
+Dynamic button ------
+interface Props {
+  children: string;
+}
+
+const Button = ({ children }: Props) => {
+  return (
+    <button type="button" className="btn btn-primary">
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+
+
+ - Do not use inline styling for generic work, use them as last resort
+
+-  Bootstrap
+-  Material UI
+-  Tailwind CSS
+-  Daily UI
+-  Chakra UI  *******
+
+
+------
+- 
+ICONS --------
+
+https://react-icons.github.io/react-icons/search
+
+# StateHook
+- React updates state asynchronously
+- State is stored outside the components
+- Use hooks at the top level of your component
+
+# StrictMode
+- When StrictMode is enabled, react renders each component twice
+- It behaves this way only development env
+- In Production, the StrictMode checks are not included and our component will render only once
+
+- When dealing with Props or state (object/arrays), you should treat them as immutable or readonly
+- Instead of updating state object, give react a brand new state object to change values of the prior state object
+
+#Spread operator
+- Instead of copying all properties, using spread operator you can use the objects of one state in another
+
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  })
+
+  const handleClick = () => {
+    const newDrink = {
+      title: drink.title,
+      price: 6
+    }
+    setDrink(newDrink)
+  };
+-----
+  const handleClick = () => {
+    const newDrink = {
+      ...drink,
+      price: 6
+    }
+    setDrink(newDrink)
+  };
+
+Using Spread operator
+  const handleClick = () => {
+    setDrink({...drink, price:6})
+  };
+
+- Prefer flat structure rather than deeply structured json, because when you update changes to json, its difficult changing the deep json objects
+
+
+Add, remove and update properties
+
+    // Add property
+    setTags([...tags, 'exciting']);
+
+    // Remove
+    setTags(tags.filter(tag => tag !== 'happy'));
+
+    // Update
+    setTags(tags.map(tag => tag === 'happy'? 'happiness': tag))
+
+
+# Immer
+- draft is a proxy object that requires the changes we are going to apply to the array
+
+    setBugs(produce(draft => {
+      const bug = draft.find(bug => bug.id === 1);
+      if (bug) bug.fixed = true
+    }))
+
+# Updating state objects
+     const [game, setGame] = useState({
+        id: 1,
+        player: {
+          name: "John",
+        },
+      });
+  
+      const handleClick = () => {
+        // setGame({...game, player : {name: 'Bob'}})
+        setGame({
+          ...game,
+          player: {
+            ...game.player,
+           Change player name
+            name: "Bob",
+          },
+        });
+      };
+
+    const [pizza, setPizza] = useState({
+      name: 'Spicy Pepperoni',
+      toppings: ['Mushroom']
+    });
+  
+    const handleClick = () => {
+  
+      // Add toppings to pizza
+      setPizza({ ...pizza, toppings: [...pizza.toppings, 'Cheese']})
+    };
+
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: "Product1", quantity: 1 },
+      { id: 2, title: "Product2", quantity: 1 },
+    ],
+  });
+
+  const handleClick = () => {
+      // Update quanity of a Prodct
+    setCart({
+      ...cart,
+      items: cart.items.map((item) =>
+        item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
+      ),
+    });
+  };
+
+# Building an ExpandableText Component
+
+# Short snippets
+div.mb-3  = <div className="mb-3"></div>
+
+div.mb-3>label.form-label+input.form-control = <div className="mb-3"><label htmlFor="" className="form-label"></label><input type="text" className="form-control" /></div>
+
+div.mb-3>label.form-label+input[type=number].form-control = <div className="mb-3"><label htmlFor="" className="form-label"></label><input type="number" className="form-control" /></div>
+
+button.btn.btn-primary = <button className="btn btn-primary" type="submit">Submit</button>
+
+# Using useRef
+  const nameRef = useRef<HTMLInputElement>(null);
+  const ageRef = useRef<HTMLInputElement>(null);
+  const person = { name: "", age: 0 };
+
+-- Always define ref objects with null, otherwise
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    if (nameRef.current !== null)
+      // console.log(nameRef.current.value);
+      person.name = nameRef.current.value;
+    if (ageRef.current !== null)
+      // console.log(ageRef.current.value);
+      person.age = parseInt(ageRef.current.value);
+    console.log(person);
+  };
+
+Use ref Hook when you see performance issues with state hook. 
+
+#Perform the above useRef using useState object
+
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          onChange={(event) =>
+            setPerson({ ...person, name: event.target.value })
+          }
+          value={person.name}
+          id="name"
+          type="text"
+          className="form-control"
+        />
+      </div>
+
+# Reduce overall code by using react-hook-form
+import { FieldValues, useForm } from "react-hook-form";
+const { register, handleSubmit } = useForm();
+
+        <input
+          {...register("name")} //we register the name field
+          id="name"
+          type="text"
+          className="form-control"
+        />
+
+#Nested destructuring in JS
+formState: { errors }
+
+#Optional chaining in JS <?.>
+{errors.name?.type === "required" && ( <p className="text-danger">The name field is required</p> )}
+
+# You can pass the values of FormData so that later the values in interface can be used in auto completion box
+interface FormData {
+  name: string;
+  age: number;
+}
+
+Validations LIBS
+- Joi
+- Yup
+- zod https://zod.dev/
+
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  name: z.string().min(3, { message: "Name must be atleast 3 characters" }),
+  age: z
+    .number({ invalid_type_error: "Age field is required" })
+    .min(18, { message: "Age should be 18 or above" })
+    .positive(),
+});
+
+const Form = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const onSubmit = (data: FieldValues) => console.log(data);
+
+.mb-3>label.form-label+input.form-control =
+<div className="mb-3"><label htmlFor="" className="form-label"></label><input type="text" className="form-control" /></div>
+
+.mb-3>label.form-label+input[type=number].form-control =
+<div className="mb-3"><label htmlFor="" className="form-label"></label><input type="number" className="form-control" /></div>
+
+.mb-3>label.form-label+select.form-select = 
+<div className="mb-3"><label htmlFor="" className="form-label"></label><select name="" id="" className="form-select"></select></div>
+
+#EffectHook()
+
+useEffect(() => {}) 
+To execute a piece of code after a component is redered
+
+useEffect - is used only after each render
+- can be used only in top level of components
+- like ref or state hooks we can call it multiple times for different purposes
+- when we have multiple effects, react will run them in order after each otherwise
+
+useEffect - cannot be used in if or for loops
+
+# Use interface to print the user name at runtime using interfaces
+
+interface User {
+  id: number;
+  name: string;
+}
+
+function App() {
+  const [users, setUsers] = useState<User[]>([]); #The Interface array is passed here
+  useEffect(() => {
+    axios
+      .get<User[]>("https://jsonplaceholder.typicode.com/users") #The Interface array is passed here
+      .then((res) => console.log(res.data[0].name));
+  }, []);  # Add empty array as dependency to the useEffect, otherwise the server will go in infinite loop
+
+  return <div></div>;
+}
+
+Custom Hooks 
+- using custom hooks we can share functionality across different components
