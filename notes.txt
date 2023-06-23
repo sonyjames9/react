@@ -345,3 +345,6 @@ function App() {
 
   return <div></div>;
 }
+
+Custom Hooks 
+- using custom hooks we can share functionality across different components
