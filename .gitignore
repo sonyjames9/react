@@ -30,3 +30,6 @@ dist-ssr
 #Package lock
 **package-lock.json
 react-app/package-lock.json
+
+#Resources
+GameHub Resources.zip
