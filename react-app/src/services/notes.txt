@@ -353,3 +353,6 @@ Custom Hooks
 Chakra ui
 
 https://chakra-ui.com/
+
+breakpoints
+https://chakra-ui.com/docs/styled-system/responsive-styles
