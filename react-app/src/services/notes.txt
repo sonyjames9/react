@@ -356,3 +356,9 @@ https://chakra-ui.com/
 
 breakpoints
 https://chakra-ui.com/docs/styled-system/responsive-styles
+
+Add space between two objects
+    <HStack padding={1}> # adds space to both x and y coordinate
+    <HStack marginY={1}> # adds space only to Y coordinate
+    <HStack marginY={'10px'}> # Its better to use numeric values like above.
+    If you want precise control you can use px like in eg3
