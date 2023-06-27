@@ -362,3 +362,5 @@ Add space between two objects
     <HStack marginY={1}> # adds space only to Y coordinate
     <HStack marginY={'10px'}> # Its better to use numeric values like above.
     If you want precise control you can use px like in eg3
+
+To Shift the state to the closest component, we should lift it up the state to the closest parent.
