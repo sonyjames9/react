@@ -14,11 +14,13 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import ColorModeSwitch from "./components/ColorMoreSwitch";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
       <Button onClick={toggleColorMode}>
         Toggle {colorMode === "dark" ? "Light" : "Dark"}
       </Button>
+      {/* <ColorModeSwitch /> */}
       <Grid
         templateAreas={{
           base: `"nav"  "main"`,
@@ -41,7 +44,7 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <NavBar />
+          <NavBar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} />
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
