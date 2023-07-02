@@ -364,3 +364,13 @@ Add space between two objects
     If you want precise control you can use px like in eg3
 
 To Shift the state to the closest component, we should lift it up the state to the closest parent.
+
+https://chakra-ui.com/docs/styled-system/theme
+
+https://github.com/chakra-ui/chakra-ui
+
+https://rawg.io/apidocs
+
+https://api.rawg.io/docs/#operation/genres_read
+
+https://smart-swatch.netlify.app/

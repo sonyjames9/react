@@ -15,7 +15,6 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
-import ColorModeSwitch from "./components/ColorMoreSwitch";
 import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
